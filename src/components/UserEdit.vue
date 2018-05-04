@@ -1,0 +1,16 @@
+<template>
+    <div class="component">
+        <h3>You may edit the user here</h3>
+        <p>Edit me!</p>
+    </div>
+</template>
+
+<script>
+
+</script>
+
+<style>
+    div {
+        background-color: lightgreen;
+    }
+</style>
