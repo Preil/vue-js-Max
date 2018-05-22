@@ -93,9 +93,18 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                            <button class="btn btn-primary" @click.prevent="submitted">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <hr>
-                <div class="row">
+                <div class="row" v-if="isSubmitted">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -136,7 +145,13 @@
                 gender: '',
                 priorities: ['High', 'Medium', 'Low'],
 //                selectedPriority: ''
-                 selectedPriority: 'Low' //- this is another way to define default value
+                 selectedPriority: 'Low', //- this is another way to define default value
+                isSubmitted: false
+            }
+        },
+        methods : {
+            submitted () {
+                this.isSubmitted = true;
             }
         }
     }
