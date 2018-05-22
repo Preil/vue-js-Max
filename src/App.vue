@@ -18,7 +18,7 @@
                         <input type="password"
                                id="password"
                                class="form-control"
-                               v-model="userData.password">
+                               v-model.lazy="userData.password">
 
                     </div>
 
