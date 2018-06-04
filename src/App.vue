@@ -6,9 +6,9 @@
                 <hr>
                 <button class="btn btn-primary" @click="show=!show">Show Alert</button>
                 <br><br>
-                <transion name="fade">
+                <transition name="fade">
                     <div class="alert alert-info" v-if="show">This is some info</div>
-                </transion>
+                </transition>
 
             </div>
         </div>
@@ -27,17 +27,18 @@
 </script>
 
 <style>
-    .fade-enter{
-
+    .fade-enter {
+        opacity: 0;
     }
     .fade-enter-active {
-
+        transition: opacity 1s;
     }
     .fade-leave {
-
+        /*opacity: 1; - we comment it because it is "1" by default */
     }
     .fade-leave-active {
-
+        transition : 1s;
+        opacity: 0;
     }
 
 </style>
