@@ -44,18 +44,35 @@
                     <div style="width: 300px; height: 100px; background-color: lightgreen" v-if="load"></div>
                 </transition>
 
+                <hr>
+                <br>
+                <button class="btn btn-primary"
+                        @click="selectedAlert == 'app-success-alert' ? selectedAlert = 'app-danger-alert' : selectedAlert = 'app-success-alert'"
+                >Toggle components
+                </button>
+                <br><br>
+                <transition name="fade" mode="out-in">
+                    <component :is="selectedAlert"></component>
+                </transition>
+
+
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import DangerAlert from './DangerAlert.vue';
+    import SuccessAlert from './SuccessAlert.vue';
+
+
     export default {
         data() {
             return {
                 load: true,
                 show: false,
-                elementWidth: 100
+                elementWidth: 100,
+                selectedAlert: 'app-success-alert'
             }
         },
         methods: {
@@ -107,6 +124,10 @@
             leaveCancelled(el) {
                 console.log('leaveCancelled')
             }
+        },
+        components: {
+            appDangerAlert: DangerAlert,
+            appSuccessAlert: SuccessAlert
         }
     }
 
