@@ -12,6 +12,14 @@
                     <input type="text" class="form-control" v-model="user.email">
                 </div>
                 <button class="btn btn-primary" @click="submit">Submit</button>
+
+                <hr>
+                <button class="btn btn-primary" @click="fetchData">Get data</button>
+                <br><br>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="u in users"> Name: {{ u.username }}  <{{u.email}}> </li>
+                </ul>
+
             </div>
 
         </div>
@@ -24,18 +32,33 @@
             return {
                 user: {
                     username: '',
-                    email: ''
-                }
+                    email: '',
+                    users: []
+                },
+                users:[]
             }
         },
         methods: {
             submit () {
-                this.$http.post('https://preil-vue.firebaseio.com/data.json', this.user)
+                this.$http.post('', this.user)
                     .then(response => {
                         console.log(response);
                     }, error => {
                         console.log(error);
                     });
+            },
+            fetchData (){
+                this.$http.get('')
+                    .then (response => {
+                        return response.json();
+                    })
+                    .then(data => {
+                        const resultArray = [];
+                        for (let key in data){
+                            resultArray.push(data[key]);
+                        }
+                        this.users = resultArray;
+                    })
             }
         }
     }
