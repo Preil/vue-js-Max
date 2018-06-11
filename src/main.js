@@ -3,7 +3,7 @@ import VueResource from 'vue-resource'
 import App from './App.vue'
 
 Vue.use(VueResource);
-Vue.http.options.root = 'https://preil-vue.firebaseio.com/data.json';
+Vue.http.options.root = 'https://preil-vue.firebaseio.com/';
 Vue.http.interceptors.push((request, next) => {
     console.log(request);
     if (request.method == 'POST') {
