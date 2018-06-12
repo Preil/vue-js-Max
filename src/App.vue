@@ -12,6 +12,9 @@
                     <input type="text" class="form-control" v-model="user.email">
                 </div>
                 <button class="btn btn-primary" @click="submit">Submit</button>
+                <hr>
+                <label>Resource</label>
+                <input type="text" v-model="node">
 
                 <hr>
                 <button class="btn btn-primary" @click="fetchData">Get data</button>
@@ -36,7 +39,8 @@
                     users: []
                 },
                 users: [],
-                resource: {}
+                resource: {},
+                node: 'data'
             }
         },
         methods: {
@@ -48,10 +52,10 @@
 //                        console.log(error);
 //                    });
 //                this.resource.save({}, this.user)
-                this.resource.saveAlt(this.user)
+                this.resource.saveAlt({node: this.node}, this.user)
             },
             fetchData() {
-                this.$http.get('data.json')
+                this.resource.getData({node: this.node})
                     .then(response => {
                         return response.json();
                     })
@@ -66,9 +70,10 @@
         },
         created () {
             const customActions = {
-                saveAlt: { method: 'POST', url: 'alternative.json'}
+                saveAlt: { method: 'POST', url: '{node}.json'},
+                getData: {method: 'GET'}
             };
-            this.resource = this.$resource('data.json', {}, customActions);
+            this.resource = this.$resource('{node}.json', {}, customActions);
         }
     }
 </script>
