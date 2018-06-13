@@ -1,5 +1,5 @@
-import User from './components/User.vue';
-import Home from './Home.vue';
+import User from './components/user/User.vue';
+import Home from './components/Home.vue';
 
 export const routes = [
     {path: '', component: Home},
