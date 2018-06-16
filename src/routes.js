@@ -9,7 +9,7 @@ export const routes = [
     {path: '/user', component: User, children:[
         {path:'', component: UserStart},
         {path:':id', component: UserDetails},
-        {path:'', component: UserEdit}
+        {path:':id/edit', component: UserEdit}
 
     ]}
 
