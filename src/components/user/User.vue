@@ -15,6 +15,13 @@
                 id: this.$route.params.id
             }
         },
+        watch: {
+            // watcher is needed to control route changes, because if we stay at the same component,
+            // Vue doesn't reload it.
+            '$route' (to, from) {
+                this.id = to.params.id;
+            }
+        },
         methods: {
             goToHomePage() {
                 this.$router.push('/')
