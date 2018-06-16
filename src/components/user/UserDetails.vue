@@ -6,7 +6,7 @@
         <router-link
                 tag="button"
                 class="btn btn-primary"
-                :to="{name:'userEdit', params: {id}}">Edit</router-link>
+                :to="{name:'userEdit', params: {id}, query: {locale: 'en', q: 100}}">Edit</router-link>
     </div>
 </template>
 
