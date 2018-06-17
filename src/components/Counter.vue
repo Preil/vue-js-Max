@@ -8,11 +8,11 @@
 <script>
     export default {
         methods: {
-            increment () {
-                this.$emit('updated', 1);
+            increment() {
+                this.$store.state.counter++;
             },
-            decrement () {
-                this.$emit('updated', -1);
+            decrement() {
+                this.$store.state.counter--;
             }
 
         }
