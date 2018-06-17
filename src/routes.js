@@ -19,7 +19,10 @@ export const routes = [
         'header-bottom': Header // means that Header component for router-view named 'header-bottom'
     }, children: [
         {path: '', component: UserStart},
-        {path: ':id', component: UserDetails},
+        {path: ':id', component: UserDetails, beforeEnter: (to, from, next) => {
+            console.log('inside route setup');
+            next();
+        }},
         {path: ':id/edit', component: UserEdit, name: 'userEdit'}
     ]
     },
