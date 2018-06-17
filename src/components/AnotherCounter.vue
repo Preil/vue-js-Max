@@ -13,11 +13,7 @@
             ...mapActions ([
                 'increment',
                 'decrement'
-            ]),
-            // What is mapAction actually does:
-            increment (by) {
-                this.$store.dispatch('increment', by);
-            }
-        }
+            ])
+          }
     }
 </script>
