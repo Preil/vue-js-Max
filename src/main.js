@@ -15,6 +15,14 @@ const router = new VueRouter({
     }
 });
 
+router.beforeEach((to, from, next)=>{
+    console.log('global beforeEach');
+    next();
+    // next(false); - to deny routing
+    // next('/'); - go to path '/'
+    // next({ path: 'home'}); - go to named path
+})
+
 new Vue({
     el: '#app',
     router,
