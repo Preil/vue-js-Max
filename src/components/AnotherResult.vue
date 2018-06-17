@@ -6,14 +6,11 @@
 </template>
 
 <script>
-    export default{
-        computed: {
-            counter() {
-                return this.$store.getters.doubleCounter;
-            },
-            clicks() {
-                return this.$store.getters.clicksCounter;
-            }
-        }
+    import { mapGetters } from 'vuex';
+    export default {
+        computed: mapGetters({
+            counter: 'doubleCounter',
+            clicks: 'clicksCounter'
+        })
     }
 </script>
