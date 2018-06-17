@@ -11,6 +11,9 @@ export const store = new Vuex.Store({
         // to avoid such repeats inside our application components.
         doubleCounter: state => {
             return state.counter * 2;
+        },
+        clicksCounter: state => {
+            return state.counter + ' clicks';
         }
     }
 });
