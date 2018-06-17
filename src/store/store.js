@@ -16,12 +16,18 @@ export const store = new Vuex.Store({
             return state.counter + ' clicks';
         }
     },
-    mutations: {
+    mutations: { // Mutations must run synchronously, no asynchronous tasks allowed to be inside mutation.
+                    // for this reason we have "actions" which are able to do asynchronous tasks and after fulfilling - commit mutations.
         increment: state => {
             state.counter++;
         },
         decrement: state => {
             state.counter--;
         }
+    },
+    actions: {
+        increment: context => {
+            context.commit('increment');
+        } // this long form code. We get context object, which is provide our "action" access to mutation commit method.
     }
 });
