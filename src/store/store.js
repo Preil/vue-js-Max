@@ -26,8 +26,8 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
-        increment: context => {
-            context.commit('increment');
-        } // this long form code. We get context object, which is provide our "action" access to mutation commit method.
+        increment: ({commit}) => {
+            commit('increment');
+        } // this is shorter form code. We get just property, which is needed for committing mutation.
     }
 });
