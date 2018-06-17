@@ -28,6 +28,19 @@ export const store = new Vuex.Store({
     actions: {
         increment: ({commit}) => {
             commit('increment');
-        } // this is shorter form code. We get just property, which is needed for committing mutation.
+        }, // this is shorter form code. We get just property, which is needed for committing mutation.
+        decrement: ({commit}) => {
+            commit('decrement');
+        },
+        asyncIncrement: ({commit}) => {
+            setTimeout(()=> {
+                commit('increment');
+            }, 1000);
+        },
+        asyncDecrement: ({commit}) => {
+            setTimeout(()=> {
+                commit('decrement');
+            }, 1000);
+        }
     }
 });
