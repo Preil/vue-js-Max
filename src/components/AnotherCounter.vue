@@ -1,7 +1,7 @@
 <template>
     <div>
-        <button class="btn btn-primary" @click="increment(100)">Increment</button>
-        <button class="btn btn-primary" @click="decrement">Decrement</button>
+        <button class="btn btn-primary" @click="increment(1)">Increment</button>
+        <button class="btn btn-primary" @click="decrement(1)">Decrement</button>
     </div>
 </template>
 
@@ -13,11 +13,7 @@
             ...mapActions ([
                 'increment',
                 'decrement'
-            ]),
-            // What is mapAction actually does:
-            increment (by) {
-                this.$store.dispatch('increment', by);
-            }
-        }
+            ])
+          }
     }
 </script>

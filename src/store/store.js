@@ -18,19 +18,19 @@ export const store = new Vuex.Store({
     },
     mutations: { // Mutations must run synchronously, no asynchronous tasks allowed to be inside mutation.
                     // for this reason we have "actions" which are able to do asynchronous tasks and after fulfilling - commit mutations.
-        increment: state => {
-            state.counter++;
+        increment: (state, payload) => {
+            state.counter += payload;
         },
-        decrement: state => {
-            state.counter--;
+        decrement: (state, payload) => {
+            state.counter-= payload;
         }
     },
     actions: {
-        increment: ({commit}) => {
-            commit('increment');
+        increment: ({commit}, payload) => {
+            commit('increment', payload);
         }, // this is shorter form code. We get just property, which is needed for committing mutation.
-        decrement: ({commit}) => {
-            commit('decrement');
+        decrement: ({commit}, payload) => {
+            commit('decrement', payload);
         },
         asyncIncrement: ({commit}) => {
             setTimeout(()=> {

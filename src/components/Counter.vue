@@ -1,20 +1,19 @@
 <template>
     <div>
-        <button class="btn btn-primary" @click="increment">Increment</button>
-        <button class="btn btn-primary" @click="decrement">Decrement</button>
+        <button class="btn btn-primary" @click="increment(100)">Increment</button>
+        <button class="btn btn-primary" @click="decrement(50)">Decrement</button>
     </div>
 </template>
 
 <script>
+    import {mapActions} from 'vuex'
+
     export default {
         methods: {
-            increment() {
-                this.$store.state.counter++;
-            },
-            decrement() {
-                this.$store.state.counter--;
-            }
-
+            ...mapActions([
+                'increment',
+                'decrement'
+            ])
         }
     }
 </script>
