@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        counter: 0
+        counter: 0,
+        value: 0
     },
     getters: { // We use getters to access state variables with some modifications(calculations)
         // to avoid such repeats inside our application components.
@@ -14,6 +15,9 @@ export const store = new Vuex.Store({
         },
         clicksCounter: state => {
             return state.counter + ' clicks';
+        },
+        value: state => {
+            return state.value;
         }
     },
     mutations: { // Mutations must run synchronously, no asynchronous tasks allowed to be inside mutation.
@@ -23,6 +27,9 @@ export const store = new Vuex.Store({
         },
         decrement: (state, payload) => {
             state.counter-= payload;
+        },
+        updateValue: (state, payload) => {
+            state.value = payload;
         }
     },
     actions: {
@@ -41,6 +48,9 @@ export const store = new Vuex.Store({
             setTimeout(()=> {
                 commit('decrement', payload.by);
             }, payload.duration);
+        },
+        updateValue: ({commit}, payload) => {
+            commit('updateValue', payload);
         }
     }
 });
