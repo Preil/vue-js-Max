@@ -7,14 +7,13 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import * as types from '../store/types'
     export default {
         computed: {
-            ...mapGetters ([ // this variant allows to create our own computed properties.
-                // for using "...", probably, need to install component: "npm install --save-dev babel-preset-stage-2"
-                // with some .babelrc presets.
-                'doubleCounter',
-                'clicksCounter'
-            ])
+            ...mapGetters ({
+                doubleCounter: types.DOUBLE_COUNTER,
+                clicksCounter: types.CLICK_COUNTER
+            })
         }
     }
 </script>
